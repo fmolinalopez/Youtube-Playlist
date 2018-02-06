@@ -10,6 +10,10 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.android.youtube.player.YouTubeStandalonePlayer;
+
+import org.molina.youtubeplaylist.model.Video;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -18,10 +22,13 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String YOUTUBE_API_KEY = "AIzaSyDQaNgIQOMx8xW_LuHLnworftOoVZzb4bo";
     private static final String PLAYLIST_RSS_URL = "https://www.youtube.com/feeds/videos.xml?playlist_id=PLOy0j9AvlVZPto6IkjKfpu0Scx--7PGTC";
 
     public Button btn_cargar_playlist;
     public ListView mPlayList;
+    public Video video;
+    public String video_id;
 
     private String mFileContent;
 
@@ -46,8 +53,14 @@ public class MainActivity extends AppCompatActivity {
                 mPlayList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent videoIntent = new Intent(MainActivity.this, VideoActivity.class);
-                        videoIntent.putExtra("video", parsePlaylist.getVideo(i));
+                        video = parsePlaylist.getVideo(i);
+                        video_id = video.getContent();
+                        Intent videoIntent = YouTubeStandalonePlayer.createVideoIntent(
+                                MainActivity.this,
+                                YOUTUBE_API_KEY,
+                                video_id
+
+                        );
                         startActivity(videoIntent);
                     }
                 });
