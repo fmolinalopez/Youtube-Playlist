@@ -10,7 +10,7 @@ public class Video implements Serializable{
     private String thumbnail;
     private String title;
     private String description;
-    private String content;
+    private String videoId;
     private String statistics;
 
     public Video() {
@@ -20,7 +20,7 @@ public class Video implements Serializable{
         this.thumbnail = thumbnail;
         this.title = title;
         this.description = description;
-        this.content = content;
+        this.videoId = content;
         this.statistics = statistics;
     }
 
@@ -40,12 +40,12 @@ public class Video implements Serializable{
         this.title = title;
     }
 
-    public String getContent() {
-        return content;
+    public String getVideoId() {
+        return videoId;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setVideoId(String videoId) {
+        this.videoId = videoId;
     }
 
     public String getStatistics() {
@@ -69,7 +69,7 @@ public class Video implements Serializable{
         return "Video{" +
                 "thumbnail='" + thumbnail + '\'' +
                 ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
+                ", videoId='" + videoId + '\'' +
                 ", statistics='" + statistics + '\'' +
                 '}';
     }

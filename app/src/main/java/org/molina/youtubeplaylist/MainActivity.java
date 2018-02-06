@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         video = parsePlaylist.getVideo(i);
-                        video_id = video.getContent();
+                        video_id = video.getVideoId();
                         Intent videoIntent = YouTubeStandalonePlayer.createVideoIntent(
                                 MainActivity.this,
                                 YOUTUBE_API_KEY,

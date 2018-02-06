@@ -65,7 +65,7 @@ class ParsePlaylist {
                             } else if (tagName.equalsIgnoreCase("title")) {
                                 currenRecord.setTitle(textValue);
                             }else if (tagName.equalsIgnoreCase("videoId")){
-                                currenRecord.setContent(textValue);
+                                currenRecord.setVideoId(textValue);
                             } else if (tagName.equalsIgnoreCase("thumbnail")){
                                 String url = xpp.getAttributeValue(null, "url");
                                 currenRecord.setThumbnail(url);
