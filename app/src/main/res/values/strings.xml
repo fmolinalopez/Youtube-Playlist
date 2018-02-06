@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">YoutubePlaylist</string>
+    <string name="rep">reproducir video</string>
+    <string name="cargar_playlist">Cargar Playlist</string>
+</resources>
